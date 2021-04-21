@@ -14,34 +14,51 @@
     <h1>
 		
 	<?php
-	print_r($_GET['email']);
+	if(isset($_GET['email'])) {
+		print_r($_GET['email']);
+	}
+// print_r($_POST);
+	if(
+		isset($_POST['nomer1']) && $_POST['nomer1'] != "" && 
+		isset($_POST['nomer2']) && $_POST['nomer2'] != "" && 
+		isset($_POST['uildel']) && $_POST['uildel'] != "") {
+		$uildel = $_POST['uildel'];
+		switch($uildel) {
+			case "+":
+				$hariu = $_POST['nomer1'] + $_POST['nomer2'];
+			break;
+			case "-":
+				$hariu = $_POST['nomer1'] - $_POST['nomer2'];
+			break;
+			case "*":
+				$hariu = $_POST['nomer1'] * $_POST['nomer2'];
+			break;
+			case "/":
+				$hariu = $_POST['nomer1'] / $_POST['nomer2'];
+			break;
+
+			default:
+				$hariu = 'Aldaa';
+		}
+		echo $hariu;
+	}
 	?>
 	</h1>
-
-    
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<form action="index.php" method="GET" >
-					<h2>GET METHOD TO INDEX.PHP</h2>
-					<input name="email" />
-					<input name="name" />
-					<textarea name="message"></textarea>
-					<button type="submit">SEND</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<hr/>
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<form action="form.php" method="POST" >
-					<h2>POST METHOD TO FORM.PHP</h2>
-					<input name="email" />
-					<input name="name" />
-					<textarea name="message"></textarea>
-					<button type="submit">SEND</button>
+				<form action="index.php" method="POST" >
+					<h2>Calculator</h2>
+					<input name="nomer1" type="number" placeholder="#1" required />
+					<input name="nomer2" type="number" placeholder="#2" required />
+					<select required name="uildel" class="form-select" aria-label="Uildel">
+						<option selected></option>
+						<option value="+">+</option>
+						<option value="-">-</option>
+						<option value="*">*</option>
+						<option value="/">/</option>
+					</select>
+					<button type="submit">Calculate</button>
 				</form>
 			</div>
 		</div>

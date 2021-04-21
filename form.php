@@ -30,6 +30,25 @@ $oguulber = "Variables can store data of different types, and different data typ
 // echo strlen($email);
 // die();
 
+// strlen();
+
+switch ($email) {
+    case "apprenticemn@gmail.com":
+      echo "Apprentice Gmail bainaa";
+      break;
+    case "i@apprentice.mn":
+      echo "apprentice.mn email bainaa";
+      break;
+    case "":
+      echo "Email xayag xooson baina";
+      break;
+    default:
+      echo "emailiing shalgalt duuslaa";
+  }
+
+
+
+
 
 if(strlen($email) == 0) {
     echo "Email xayag xooson baina";
