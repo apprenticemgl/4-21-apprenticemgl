@@ -14,33 +14,50 @@
     <h1>
 		
 	<?php
+	function xoosonbish($field) {
+		if($field != "") {
+			return true;
+		}
+
+		return false;
+	}
+
+	function calculate($nom1, $nom2, $uildel) {
+		switch($uildel) {
+			case "apprenticemn@gmail.com":
+			case "i@apprentice.mn":
+			case "+":
+				return $nom1 + $nom2;
+			break;
+			case "-":
+				return $nom1 - $nom2;
+			break;
+			case "*":
+				return $nom1 * $nom2;
+			break;
+			case "/":
+				return $nom1 / $nom2;
+			break;
+
+			default:
+				return 'Aldaa';
+		}
+		return 'Mash tom aldaa';
+	}
+
+
 	if(isset($_GET['email'])) {
 		print_r($_GET['email']);
 	}
 // print_r($_POST);
-	if(
-		isset($_POST['nomer1']) && $_POST['nomer1'] != "" && 
-		isset($_POST['nomer2']) && $_POST['nomer2'] != "" && 
-		isset($_POST['uildel']) && $_POST['uildel'] != "") {
+	if( xoosonbish($_POST['nomer1']) && xoosonbish($_POST['nomer2']) && xoosonbish($_POST['uildel'])) {
 		$uildel = $_POST['uildel'];
-		switch($uildel) {
-			case "+":
-				$hariu = $_POST['nomer1'] + $_POST['nomer2'];
-			break;
-			case "-":
-				$hariu = $_POST['nomer1'] - $_POST['nomer2'];
-			break;
-			case "*":
-				$hariu = $_POST['nomer1'] * $_POST['nomer2'];
-			break;
-			case "/":
-				$hariu = $_POST['nomer1'] / $_POST['nomer2'];
-			break;
 
-			default:
-				$hariu = 'Aldaa';
+		$hariu = calculate($_POST['nomer1'], $_POST['nomer2'], $_POST['uildel']);
+
+		if(xoosonbish($hariu)) {
+			echo $hariu;
 		}
-		echo $hariu;
 	}
 	?>
 	</h1>
