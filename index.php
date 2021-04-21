@@ -13,37 +13,44 @@
   <body>
     <h1>
 		
-	<?php
-	function xoosonbish($field) {
-		if($field != "") {
-			return true;
-		}
-
-		return false;
+<?php
+function xoosonbish($field) {
+	if($field != "") {
+		return 1; //true
 	}
+	return 0; //false
+}
 
-	function calculate($nom1, $nom2, $uildel) {
-		switch($uildel) {
-			case "apprenticemn@gmail.com":
-			case "i@apprentice.mn":
-			case "+":
-				return $nom1 + $nom2;
-			break;
-			case "-":
-				return $nom1 - $nom2;
-			break;
-			case "*":
-				return $nom1 * $nom2;
-			break;
-			case "/":
-				return $nom1 / $nom2;
-			break;
+function zugeerprintxiigeerei() {
+	echo "<br>";
+}
 
-			default:
-				return 'Aldaa';
-		}
-		return 'Mash tom aldaa';
+function konop() {
+	echo '<button type="submit">Calculate</button>';
+}
+
+function calculate($nom1, $nom2, $uildel) {
+	switch($uildel) {
+		case "apprenticemn@gmail.com":
+		case "i@apprentice.mn":
+		case "+":
+			return $nom1 + $nom2;
+		break;
+		case "-":
+			return $nom1 - $nom2;
+		break;
+		case "*":
+			return $nom1 * $nom2;
+		break;
+		case "/":
+			return $nom1 / $nom2;
+		break;
+
+		default:
+			return 'Aldaa';
 	}
+	return 'Mash tom aldaa';
+}
 
 
 	if(isset($_GET['email'])) {
@@ -51,10 +58,7 @@
 	}
 // print_r($_POST);
 	if( xoosonbish($_POST['nomer1']) && xoosonbish($_POST['nomer2']) && xoosonbish($_POST['uildel'])) {
-		$uildel = $_POST['uildel'];
-
 		$hariu = calculate($_POST['nomer1'], $_POST['nomer2'], $_POST['uildel']);
-
 		if(xoosonbish($hariu)) {
 			echo $hariu;
 		}
@@ -67,7 +71,12 @@
 				<form action="index.php" method="POST" >
 					<h2>Calculator</h2>
 					<input name="nomer1" type="number" placeholder="#1" required />
-					<input name="nomer2" type="number" placeholder="#2" required />
+					<?php zugeerprintxiigeerei(); ?>
+					<?php zugeerprintxiigeerei(); ?>
+					<?php zugeerprintxiigeerei(); ?>
+					<?php zugeerprintxiigeerei(); ?>
+					<?php zugeerprintxiigeerei(); ?>
+					<input name ="nomer2" type="number" placeholder="#2" required />
 					<select required name="uildel" class="form-select" aria-label="Uildel">
 						<option selected></option>
 						<option value="+">+</option>
@@ -75,7 +84,13 @@
 						<option value="*">*</option>
 						<option value="/">/</option>
 					</select>
-					<button type="submit">Calculate</button>
+					<?php konop(); ?>
+					<?php konop(); ?>
+					<?php konop(); ?>
+					<?php konop(); ?>
+					<?php konop(); ?>
+					<?php konop(); ?>
+					<?php konop(); ?>
 				</form>
 			</div>
 		</div>
